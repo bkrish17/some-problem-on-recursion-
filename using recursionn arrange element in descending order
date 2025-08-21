@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+void sortdescending(int arr[],int n,int index=0)
+{
+    if(index==n-1)
+        return ;
+    int maxIndex=index;
+    for(int j=index+1;j<n;j++)
+    {
+        if(arr[j]>arr[maxIndex])
+            maxIndex=j;
+    }
+    swap(arr[index],arr[maxIndex]);
+    sortdescending(arr,n,index+1);
+}
+int main()
+{
+    int arr[]={5,1,9,3,7};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    sortdescending(arr,n);
+    cout<<"array is descending ";
+    for(int i=0;i<n;i++)
+        cout<<arr[i]<<" ";
+    return 0;
+}
