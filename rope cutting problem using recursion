@@ -1,0 +1,30 @@
+//The Rope Cutting Problem
+//We are given:
+//A rope of length n
+//We can cut the rope into smaller pieces, but only of length a, b, or c.
+//The goal: cut the rope into the maximum number of pieces possible.
+//If the rope cannot be cut exactly into pieces of a, b, or c, then the answer is -1.
+
+#include <iostream>
+using namespace std;
+int maxpiece(int n,int a,int b,int c)
+{
+    if(n==0)
+        return 0;
+    if(n<0)
+        return -1;
+    int res=max({
+        maxpiece(n-a,a,b,c),
+        maxpiece(n-b,a,b,c),
+        maxpiece(n-c,a,b,c)
+    });
+    if(res==-1)
+        return -1;
+    return res+1;
+}
+int main()
+{
+    int n=5,a=2,b=1,c=5;
+    cout<<"maximum number of pieces = "<<maxpiece(n,a,b,c)<<endl;
+    return 0;
+}
