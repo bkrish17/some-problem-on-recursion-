@@ -1,0 +1,25 @@
+//alternate element of array 
+//the idea is to start iterating fromm index 0 and increment the index by 2 in each step until the end of the array is reached.
+
+#include <iostream>
+using namespace std;
+void printalternate(int arr[],int n)
+{
+    for(int i=0;i<n;i+=2)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    printalternate(arr,n);
+    return 0;
+    
+}
