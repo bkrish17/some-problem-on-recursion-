@@ -1,0 +1,42 @@
+//the logic in the leaders problem is we iterate from the right to left from the last index as the 
+//leader and assign it max and compare from the others in the form right to left and change the max 
+//according to the comparision and them we got the reversed array leaders and them reverse it to get the leader .
+
+#include <iostream>
+using namespace std;
+//function to print leaders
+void printleaders(int arr[],int n)
+{
+    int leaders[n];//array to store leaders
+    int count=0;//number of leaders found
+    
+    //right most element is always a leader
+    int maxRight=arr[n-1];
+    leaders[count++]=maxRight;
+    //transverse from right top left
+    for(int i=n-2;i>=0;i--)
+    {
+        if(arr[i]>=maxRight)
+        {
+            maxRight=arr[i];
+            leaders[count++]=maxRight;
+            
+        }
+    }
+    //leaders are sorted in reverse order
+    //print them from last to firsr
+    for(int i=count-1;i>=0;i--)
+    {
+        cout<<leaders[i]<<" ";
+    }
+    cout<<endl;
+    
+}
+int main()
+{
+    int arr[]={16,17,4,3,5,2};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printleaders(arr,n);
+    return 0;
+}
+
